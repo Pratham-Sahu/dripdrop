@@ -3,9 +3,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import DripDrop from "../assets/images/DripDrop.png";
 import { auth } from "../firebase";
 import {  signOut } from "firebase/auth";
-
-
-
 function Navigation({loggedIn,usertype}) {
   const userSignOut= () => {
     signOut(auth)
@@ -33,11 +30,8 @@ function Navigation({loggedIn,usertype}) {
               {usertype && !loggedIn && <span className="center">DripDrop</span>}
               {usertype === 'G' && loggedIn && <span className="center">DripDrop Government</span>}
               {usertype === 'P' && loggedIn && <span className="center">DripDrop Personal</span>}
-              
             </Navbar.Brand>
-            
           </LinkContainer>
-
           {!loggedIn && 
           <>
              <Nav className="justify-content-end">
@@ -55,8 +49,6 @@ function Navigation({loggedIn,usertype}) {
           </Nav>
           </>
           }
-         
-          
         </Container>
       </Navbar>
     </div>
