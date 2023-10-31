@@ -17,11 +17,6 @@ import { getDoc ,doc } from "firebase/firestore";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currUser, setCurrUser] = useState([]);
-
-
-
-
-
   useEffect(()=>{
       const unsubscribeAuth = onAuthStateChanged(auth,async (user) => {
         if (user) {
@@ -32,8 +27,7 @@ function App() {
           if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());
             setCurrUser(docSnap.data());
-          }          
-
+          }         
         } else {
           // User is signed out
           // ...
@@ -41,11 +35,6 @@ function App() {
           setLoggedIn(false)
         }
       });
-
-
-
-
-
       return unsubscribeAuth
   },[])
   
